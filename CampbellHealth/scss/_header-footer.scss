@@ -1,0 +1,96 @@
+
+// ********************* HEADER / FOOTER
+header.site-header {
+
+	position: relative;
+	@extend .container;
+	padding-bottom: 0;
+	.the-site-title {
+		@include font-size(1);
+		line-height: 1em;
+		text-align: center;
+		@include respondTo(desktop){
+			text-align: left;
+		}
+	}
+	.branding {
+		text-indent: -9999px;
+		display: block;
+		height: 80px;
+		//background: transparent url("images/logo.png") no-repeat top center;
+		margin-bottom: $pad;
+		@include respondTo(mobile){
+		//	background-size: 100% auto !important;
+			height: 90px;
+		//	background-position: center center;
+			margin-bottom: 0;
+		}
+		@include respondTo(tablet){
+		//	background-position: top left;
+		}
+	}
+}
+.main-contact-info {
+	@include respondTo(tablet){
+		text-align: right;
+	}
+	@include respondTo(desktop){
+		position: absolute;
+		//top: 0px;
+		right: $pad*1.5;
+	}
+	.login-link {
+		display: none;
+		@include respondTo(tablet){
+			display: inline;
+		}
+		@include font-size(1);
+	}
+	.phone-info {
+		margin: 0.5em 0;
+		text-align: center;
+		line-height: 1.25;
+		@include respondTo(tablet){
+			text-align: left;	
+			position: absolute;
+			right:0;
+			display: none;
+			//top: 0;
+		}
+		@include respondTo(desktop){
+			top: auto;
+			display: block;
+		}
+	}
+	.phone-number {
+		
+		@include respondTo(tablet){
+		display: block;		
+		@include font-size(1.5);
+		}
+		@include respondTo(desktop){
+			@include font-size(1.75);
+		}
+	}
+	
+}
+
+.site-footer {
+	position: relative;
+	@extend .container;
+	min-height: 250px;
+	background-color: $light-grey;
+	padding-top: $pad;
+	text-align: center;
+	color: $medium-green;
+	@include respondTo(tablet){
+		text-align: left;
+	}
+	.show-hide-navigation {
+		display: none;
+	}
+}
+.copyright {
+	display: block;
+	text-align: center;
+}

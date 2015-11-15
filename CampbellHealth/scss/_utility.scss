@@ -1,0 +1,81 @@
+// Standard Classes
+.container {
+	padding: 0 4% 4%;
+}
+.sidebar {
+	@include respondTo(tablet){
+		padding-left: $pad*2;
+		border-left: 1px solid $light-grey;
+	}
+}
+.quiet {
+	font-size: 0.8em;
+	color: #888;
+}
+[class*='icon-']:before{
+	padding-right: $pad/2;
+}
+// ********************* BANNERS
+.banner {
+	display: block;
+	float: left;
+	figure {
+		position: relative;
+	}
+	figcaption{
+		color: $dark-green;
+		font-weight: bold;
+		text-align: center;
+		text-shadow: 1px 1px 1px rgba(255,255,255, 0.65);
+		@include respondTo(mobile){
+			@include font-size(1);
+			margin-bottom: 1em;
+			font-style: italic;
+			font-weight: normal;
+			&:before, &:after{
+				color: $medium-green;
+				position: relative;
+				top: -3px;
+				//text-shadow: 0 0 3px rgba($green, 0.65);
+			}
+			&:before{
+				content: "\275d";
+				padding-right: 2px;
+			}
+			&:after{
+				content: "\275e";
+			}
+		}
+		@include respondTo(tablet){
+			text-align: left;
+			position: absolute;
+			bottom: $pad * 2;
+			left: $pad * 2;
+			width: 33%;
+			@include font-size(1.5);
+		}
+		@include respondTo(desktop){
+			@include font-size(2.5);
+		}
+
+	}
+}
+.banner-main {
+	@include respondTo(mobile){
+		//display: none;
+	}
+}
+
+// ********************** MODULE styles
+
+
+.mobile-only {
+	@include respondTo(tablet){
+		display: none;
+	}	
+}
+.mobile-hide {
+	@include respondTo(mobile){
+		display: none;
+	}
+}

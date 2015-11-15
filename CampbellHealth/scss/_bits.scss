@@ -1,0 +1,59 @@
+$dark-green: #2e3716;
+//$green: #363;
+$pale-green: #d3e6c0;
+$medium-green: #839d3f;
+$grass-green: #a3c34e;
+$orange: #C90;
+$grey: #666;
+$medium-grey: #CCC;
+$light-grey : #EaEaEa;
+$dark-red: #5b1210;
+
+
+$pad: 16px;
+
+@mixin respondTo($size) {
+  @if $lte-ie8 == true {
+    @if ($size != retina) and ($size != mobile) {      
+      @content;
+    }
+  }
+
+  @else if $size == mobile {
+    @media only screen and (max-width: 599px) { @content; }
+  }
+  @else if $size == tablet {
+    @media only screen and (min-width: 600px) { @content; }
+  }
+  @else if $size == tablet_only {
+    @media only screen and (min-width: 600px) and (max-width: 991px) { @content; }
+  }
+  @else if $size == desktop {
+    @media only screen and (min-width: 992px) { @content; }
+  }
+  @else if $size == retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) { @content; }
+  }
+}
+
+
+
+@mixin font-size($sizeValue: 1){
+  font-size: ($sizeValue * 16) + px;
+  font-size: $sizeValue + rem;
+}
+@mixin line-height($sizeValue: 1){
+  line-height: ($sizeValue * 16) + px;
+  line-height: $sizeValue + rem;
+}
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+} 
+.group:after {
+    clear: both;
+}
+.group {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}

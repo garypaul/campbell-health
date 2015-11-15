@@ -1,0 +1,41 @@
+
+/* Wordpress Stuff  */
+
+	.wp-caption {
+		background-color: $light-grey;
+		@include box-shadow(-1px 1px 4px rgba($grey, 0.65));
+		padding: 5px;
+	}
+	.alignright {
+		float: right;
+		margin-left: $pad;
+		margin-bottom: $pad/2;
+	}
+	.alignleft {
+		float: left;
+		margin-right: $pad;
+		margin-bottom: $pad/2;
+	}
+	.wp-caption-text {
+		font-style: italic;
+		@include font-size(0.75);
+		line-height: 1.5;
+		margin:0;
+		color: $dark-green;
+
+	}
+	.entry-content {
+		.wp-post-image
+		{
+			float: left;
+			width: auto;
+			margin-right: 1em;
+			margin-bottom: 0.25em;
+			max-height: 240px;
+		}	
+	}
+	.single {
+		article {
+			padding: 5%;
+		}
+	}

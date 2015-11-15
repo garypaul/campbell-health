@@ -1,0 +1,23 @@
+/*!
+Theme Name: Campbell Health
+Theme URI: http://armstrongest.com/
+Description: Custom Theme built from scratch
+Author: Gary Armstrong
+Author URI: http://armstrongest.com/
+Version: 1.0
+*/
+
+$lte-ie8 : false !default;
+
+@import 'compass/css3';
+@import 'bits'; //bits of code and variables used throughout files
+@import 'typography';
+@import 'normalize'; //normalize html elements. Generally don't edit this file
+@import 'grid'; // the basic grid
+@import 'nav'; // navigation
+@import 'base'; // base html styling
+@import 'utility'; // CSS reusable utlity classes
+@import 'header-footer'; // header and footer specific styling
+@import 'buttons'; // buttons... duh
+@import 'modules'; // reusable modules
+@import 'wp'; // Wordpress specific 

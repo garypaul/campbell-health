@@ -1,0 +1,184 @@
+.assistive-text,
+body .screen-reader-text {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+// ********************* MAIN NAVIGATION
+%menu-icon {
+	@include font-stack-icon;
+	color: white;
+	display: block;
+	margin-right: 0;
+	text-transform: none;
+	line-height: 1; // so it doesn't affect the text around it
+	color: $dark-green; // default color
+
+	@include respondTo(mobile){
+		right: $pad;
+		position: absolute;
+		display: inline-block;
+		padding-left: 1em;
+		color: $dark-green;
+	}
+}
+
+@include respondTo(mobile){
+	.main-nav li {
+		padding: 0;
+	}
+	.main-nav li:not(.show-hide-navigation) a{
+		height: 0;
+		opacity: 0;
+		padding: 0;
+	}
+	.main-nav.navigation-open {
+		
+		li a {
+			height: auto;
+			padding: $pad/2 $pad/2 10px;
+			opacity: 1;
+			@include transition( padding 0.75s ease);
+		}
+		.show-hide-navigation {
+			//opacity: 0;
+		} 
+	}
+}
+.main-nav {
+	@extend .group;
+
+	//text-align: center;
+	margin-bottom: $pad;
+	white-space: nowrap;
+	@include respondTo(mobile){
+		line-height: 1;
+	}
+	@include respondTo(tablet){
+		.show-hide-navigation  { display: none; }
+		text-align: center;
+		margin-bottom: -1.5em;
+	}
+	@include respondTo(desktop){
+		text-align: left;
+	}
+
+	.homepage a:after {		content: '\e000'; }
+	.services a:after{		content: '\e02c';	}
+	.team a:after {			content: '\e021';	}
+	.contact a:after {		content: '\e02f'; 	}
+	.location a:after{		content: '\e02e';	}
+	.space a:after{			content: '\e004';	}
+	.the-blog a:after{		content: '\e005';	}
+	.rates a:after {		content: '\e02d';	}
+	.show-hide-navigation a:after {  content: '\e031'; }
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+
+		@include respondTo(tablet){
+			display: inline-block;
+		}
+		.page-id-39 &.services a,
+		.page-id-249 &.rates a,
+		//.page-template-templatesfront-page-php &.homepage a,
+		.single-team_members &.team a,
+		.page-template-templatesteam-archive-php &.team a,
+		.page-template-templatespage-map-php &.location a,
+		.page-template-templatescontact-template-php &.contact a,
+		.page-template-templatesspaces-archive-php &.space a,
+		.single-post &.the-blog a,
+		.blog &.the-blog a{
+			background-color: $dark-green;
+			color: white;
+			z-index: 1;
+		}		
+	}
+	a {
+
+		color: $dark-red;
+		text-align: center;
+		position: relative;
+		padding: 8px 8px 10px;
+		display: block;
+
+		@include transition(color 800ms ease-out, background 800ms ease-out );
+		@include border-radius(6px);	
+		@include font-size(1.5);
+
+		@include respondTo(tablet){
+			@include font-size( 1.25);
+			display: inline-block;
+			margin-right: 0.25em;
+			line-height: 1em;
+		}
+		@include respondTo(desktop){
+			@include font-size( 1.5);
+			width: auto;
+		}
+		&:after{
+			@extend %menu-icon;
+			color: white;
+			@include respondTo(mobile){
+				position: absolute;
+				right: $pad;
+
+			}
+			@include respondTo(tablet){
+				margin-top: 0.25em;
+			}
+		}
+		&:hover:after{
+			@include respondTo(tablet){
+				display: block;
+			}
+		}
+		&:hover, &:focus {
+			@include transition(color 150ms ease-out, background 150ms ease-out );
+			//color: orange;
+			z-index: 1;
+			background-color: $grass-green;
+			color: $dark-green;
+			span[data-icon]{
+				@include respondTo(tablet){
+					display: block;
+				}
+				color: $dark-green;
+			}
+			@include box-shadow(2px 2px 2px rgba($dark-green, 0.65));
+		}
+	}
+	
+}
+.site-footer nav {
+	li {
+		@include respondTo(tablet){
+			display: inline-block;
+		}
+	}
+	a {
+		display: inline-block;
+		margin: 0.5em 1.25em 0.5em 0;
+		
+		@include font-size(1.2);
+		@include transition(color 500ms ease-out, background 500ms ease-out );		
+		
+		&:hover {
+			color: $dark-red;
+			@include transition(color 50ms ease-out, background 50ms ease-out );		
+		}
+	}
+} 
+.subnav {
+	padding: 0;
+	margin: 20px;
+	li {
+		margin-bottom: 1em;
+	}
+	a {
+		@include font-size(1.5);
+	}
+}

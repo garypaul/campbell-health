@@ -1,0 +1,335 @@
+.module-ourfriends {
+	border-top: 1px solid $medium-grey;
+	background-color: $light-grey;
+	padding-top: $pad;
+	color: $grey;
+	.gallery {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline-block;
+		}
+		img {
+			width: auto;
+			max-height: 50px;
+			display: inline-block;
+		}
+	}
+}
+.module-acronymns {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	abbr {
+		@extend .h2;
+		color: $dark-green;
+	}
+}
+.module-faq {
+
+	h2 {
+		@extend .h3;
+		
+	}
+	dt {
+		font-weight: bold;
+		color:  $dark-green;
+	}
+	dd{
+		margin: 0;
+	}
+}
+.module-testimonial {
+	width: 33%;
+	margin: 0;
+	color: $dark-green;
+	font-weight: bold;
+	font-style: italic;
+	position: relative;
+	//line-height: 1em;
+	@include respondTo(mobile){
+		padding: $pad;
+		display: none;
+	}
+	@include respondTo(tablet){
+		@include font-size(1);
+		float: none;
+		width: 100%;
+		min-height: 125px; // This is an ugly magic number
+		padding: 1em;
+		clear: both;
+	}
+	@include respondTo(desktop){
+		@include font-size(1.5);
+		clear: none;
+		float: right;
+		width: 33.3333%;
+		height: auto;
+		padding: 0;
+	}
+	footer {
+		font-size: 0.6666em;
+		text-align: right;
+		font-style: normal;
+		
+	}
+	.quote {
+		opacity: 0;
+		top: 100px; // arbitrary to slide in from
+		position: absolute;
+		@include transition(opacity 1s ease-out, top 1s ease-out);
+		@include respondTo( tablet_only ) {
+		    padding: .5em 0;
+		    margin: 0;
+		    font-size: 1.25em;
+		}
+	}
+	.active {
+		opacity: 1;
+		top: 0px;			
+	}
+
+}
+.module-shaded {
+	border-radius: $pad/2;
+	background: $pale-green;
+	padding: $pad*1.25;
+	:first-child {
+		margin-top: 0;
+	}
+
+	// hide appointment button in shaded boxes on home page
+	@include respondTo(mobile){
+		.home & .button {
+			display: none;
+		}
+	}
+
+}
+.module-homemessage, .module-alert {
+	position: relative;
+	// was part of initial icons in middle module. 	
+	[data-icon]{
+		font-size: 4em;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+}
+
+.module-alert{
+	strong {
+		color: $dark-green;
+		@extend .h2;
+	}
+}
+.module-alert span[data-icon]{
+	color: $orange;
+}
+
+
+.module-rounded {
+	@include border-radius(10px);
+	border: 1px solid $medium-grey;
+	padding: $pad;
+	text-align: center;
+	margin-bottom: $pad;
+	a {
+		display: block;
+		font-weight: bold;
+	}
+}
+.module-services .button {
+	float: right;
+	margin: 0 0 1em 1em;
+}
+
+.module-contactmember {
+	width: 100%;
+	margin: 1% 0;
+
+	float: left;
+	background: white;
+	padding: $pad;
+	border-radius: $pad;
+	border: 1px solid #ddd;
+	@include box-shadow(0 0 4px #ddd);
+	@include respondTo(desktop){
+		width: 48%;
+		margin: 0 1% 1%;
+	}
+	.bd {
+		float: left;
+	}
+	.feature-image {
+		float: left;
+		margin-right: $pad;
+		img { border-radius: $pad/2;}
+	}
+	.phone {
+		@extend .quiet;
+		@include font-size(1);
+	}
+}
+
+.module-teammember {
+	@extend .group;
+	figure {
+		float: left;
+		width: auto;
+		margin-right: 1em;
+		@include respondTo(desktop) {margin-bottom: 5em;}
+		img { border-radius: $pad/2;}
+	}
+	.bd {
+		//margin-top: -$pad*2;
+		h1,h2,h3,h4,h5,h6 {
+			margin-bottom: 0;
+			@include respondTo(mobile){
+				//margin-top: 0;
+			}
+		}
+		.credentials {
+			@include font-size(0.8);
+		}
+	}
+}
+.module-thespace {
+	@extend .group;
+}
+.home-about, .home-messages {
+	@include respondTo(tablet){
+		width: 50%;
+	}
+}
+.home-about, .home-messages {
+	@include respondTo(desktop)	{
+		width: 33.3333%;
+	}
+}
+.home-about {
+	h1 { @extend .h2; text-align: center;}
+	.entry-content { padding: 0 $pad; }
+}
+
+.section-title {
+	//margin-top: 50px;
+	margin-bottom: 0;
+}
+
+.module-map{
+	.entry-content {
+		@include respondTo(desktop){
+			float: right;
+			width: 30%;
+			padding: 16px;
+		}
+	}
+	.entry-meta {
+		@include respondTo(desktop){
+			float:left;
+			width: 70%;
+			padding: 16px 16px 16px 0;
+		}
+	}
+	.staticmap {
+		max-width: 100%;
+	}
+}
+.widget {
+	@extend .group;
+}
+.widget_text {
+	h2 {
+		margin-top: 0;
+	}
+	border-radius: $pad;
+	border: 1px solid #ccc;
+	padding: $pad;
+	width: 46%;
+	float: left;
+
+	background: white;
+	margin: 0 2% 50px;	
+	@extend .group;
+}
+
+/* http://tympanus.net/codrops/2012/02/21/accordion-with-css3 */
+
+.banner img {
+	width: 100%;
+}
+
+.accordion{
+    width:100%;
+    //min-width:270px;
+    margin: 1em auto;
+    list-style: none;
+    padding: 0;
+
+	input[type='radio']{
+    	display: none;
+	}
+	li:first-child label{
+	    border-radius: 8px 8px 0 0;
+	}
+	li:last-child label{
+	    border-radius: 0 0 8px 8px;
+	}
+
+
+	.active label,
+	label {
+	    @include transition(color 0.5s ease, border-radius 0.5s ease);    
+	    display: block;
+	    position: relative;
+	    border-bottom: 1px solid $pale-green;
+	    padding: .5em 1.5em .5em 16px;
+	    //text-shadow: 1px 1px 1px white;
+	    margin: 0;
+	    color: $dark-green;
+	}
+	label {
+		background: $medium-grey;
+	}
+	.active label {
+		background: $grass-green;
+		border-bottom-left-radius: 0 !important;
+		border-bottom-right-radius: 0 !important;
+	}
+	label:hover {
+	    color: white;
+	    background: $medium-green;
+	    cursor: pointer;
+	    @include transition (color 50ms ease);    
+	}
+
+	label:hover:before{
+	    content : '\25BC';
+	    position: absolute;
+	    right: 0.5em;
+	    color: $grass-green;
+	}
+	input:checked + label:hover:before{
+	    content : '\25BC';
+	}
+
+	.bd {
+	    padding: 0 16px;
+	    //@include background(linear-gradient(linen, white));
+	    max-height: 0;
+	    overflow: hidden;
+	    @include transition(max-height .5s ease-in-out);
+	}
+ 
+ 	// any .bd that's a sibling of input:checked
+	input:checked ~ .bd {
+	    display: block;
+	    max-height: 800px;
+	    overflow-y: auto;
+	    color: black;
+	}
+}

@@ -1,0 +1,79 @@
+*, *::before, *::after{
+	@include box-sizing(border-box);
+}
+.content-box-sizing {
+	@include box-sizing(content-box);
+}
+
+// Standard html elements 
+html { background: #efefef; }
+body {
+	width: 100%;
+	background: white;
+	font-family: Calibri, 'Helvetica Neue', Arial, sans-serif;
+	@include box-shadow(0 0 30px rgba($grey, 0.25));
+	margin: 0 auto;
+	padding: 0 0px 0;
+	//@include transition(width 500ms ease-out, max-width 500ms ease-out);
+	@include respondTo(mobile){
+		padding: 0;
+		//max-width: 700px;
+	}
+	@include respondTo(tablet){
+		//max-width: 768px;
+	}
+	@include respondTo(desktop){
+		max-width: 1140px;	
+	}
+}
+table {
+	color: $dark-green;
+	font-size: 1.3333em;
+	tr:nth-of-type(2){
+		//text-shadow: 1px 1px 1px rgba(white,0.5);
+		//@include background( linear-gradient(bottom , $pale-green, darken($pale-green, 8%)));
+	}
+	thead {
+		th {
+			font-weight: bold;
+			text-align: left;
+			background: $pale-green;
+			color: black;
+			&:first-of-type {
+				border-radius: 8px 0 0 0;
+			} 
+			&:last-of-type {
+				border-radius: 0 8px 0 0;
+			}
+		}
+	}
+	tbody tr {
+		border: 1px solid $pale-green;
+		@include box-shadow(1px 1px 5px rgba($light-grey, 0.65));
+
+	}
+	td,th {
+		padding: 5px 10px;
+		&:last-of-type{
+			text-align: right;
+		}
+	}
+}
+img {
+	@include respondTo(mobile){
+		width: 100%;
+	}
+}
+p > img {
+	width: auto;
+}
+article table {
+	margin-right: 1em;
+	margin-bottom: 0.5em;
+	width: 100%;
+	@include respondTo(mobile){
+		//float: none;
+		//display: block;
+		//width: 100%;
+	}
+}
