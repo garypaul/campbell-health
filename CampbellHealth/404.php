@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-	<h2><?php _e('Error 404 - Page Not Found','html5reset'); ?></h2>
+	<article class="container">
+		<h1><?php _e('Uh-oh - Page Not Found — 404','html5reset'); ?></h2>
+		<p>But don't get out of joint. Come in for an appointment and we'll sort things out.</p>
+	</article>
 
 <?php get_sidebar(); ?>
 
