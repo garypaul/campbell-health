@@ -30,7 +30,6 @@
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	
 	<meta name="title" content="<?php wp_title( '|', true, 'right' ); ?>">
-	<meta name="description" content="<?php bloginfo('description'); ?>">
 	
 	<meta name="google-site-verification" content="">
 	<!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->

@@ -8,19 +8,37 @@
             require_once($locale_file);
 	
 	// Add RSS links to <head> section
-	automatic_feed_links();
+	add_theme_support( 'automatic-feed-links' );
 	
-	// Load jQuery
-	if ( !function_exists(core_mods) ) {
+	// Load core mods
+	if ( !function_exists('core_mods') ) {
 		function core_mods() {
 			if ( !is_admin() ) {
-				wp_deregister_script('jquery');
-				wp_register_script('jquery', ("//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"), false);
-				wp_enqueue_script('jquery');
+    //             add_action('')
+				// wp_deregister_script('jquery');
+				// wp_register_script('jquery', ("//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"), false);
+				// wp_enqueue_script('jquery');
 			}
 		}
 		core_mods();
 	}
+
+    // Add any scripts you need
+    function campbellhealth_scripts() {
+        
+        // Use a custom version of jQuery on the front-end
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', ("//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"), false);
+        wp_enqueue_script('jquery');
+        
+        // Example for style
+        // wp_enqueue_style( 'style-name', get_stylesheet_uri() );
+        
+        // Example for script
+        // wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/example.js', array(), '1.0.0', true );
+    }
+
+    add_action( 'wp_enqueue_scripts', 'campbellhealth_scripts' );
 
 	// Clean up the <head>
 	function removeHeadLinks() {
