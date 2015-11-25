@@ -57,7 +57,14 @@
 	}
 	@include respondTo(mobile){
 		display: block;
-
+		margin: 0;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		border-radius: 0;
+		padding-top: 12px;
+		padding-bottom: 12px;
 	}
 	span { 
 		padding-right: $pad/2;

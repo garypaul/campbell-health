@@ -17,6 +17,7 @@ body {
 	//@include transition(width 500ms ease-out, max-width 500ms ease-out);
 	@include respondTo(mobile){
 		padding: 0;
+		padding-top: 50px;
 		//max-width: 700px;
 	}
 	@include respondTo(tablet){
