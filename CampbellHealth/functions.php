@@ -76,7 +76,7 @@
             array('main_nav' => 'Main Navigation Menu')
         );
     }
-
+/*
     function the_post_thumbnail_caption() {
       global $post;
 
@@ -87,4 +87,5 @@
         echo '<span>'.$thumbnail_image[0]->post_excerpt.'</span>';
       }
     }
+    */
 ?>
